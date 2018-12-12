@@ -12,13 +12,28 @@ class App extends Component {
     ]
   }
 
+  switchName = () => {
+    this.setState({
+      users: [
+        {nickname: "Penisek2"},
+        {nickname: "Krzysio2"},
+        {nickname: "Truskawka2"},
+      ]
+    })
+
+  }
+
   render() {
     return (
       <div className="App">
         <UserInput/>
-      <UserOutput userName={this.state.users[0].nickname} />
-    <UserOutput userName={this.state.users[1].nickname} />
-  <UserOutput userName={this.state.users[2].nickname} />
+        <UserOutput
+          click={this.switchName}
+          userName={this.state.users[0].nickname} />
+        <UserOutput
+          userName={this.state.users[1].nickname} />
+        <UserOutput
+          userName={this.state.users[2].nickname} />
       </div>
     );
   }
