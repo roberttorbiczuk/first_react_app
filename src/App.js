@@ -6,18 +6,18 @@ import UserOutput from './UserOutput/UserOutput';
 class App extends Component {
   state = {
     users: [
-      {nickname: "Penisek"},
+      {nickname: "Alfred"},
       {nickname: "Krzysio"},
       {nickname: "Truskawka"},
     ]
   }
 
-  switchName = () => {
+  switchName = (name) => {
     this.setState({
       users: [
-        {nickname: "Penisek2"},
-        {nickname: "Krzysio2"},
-        {nickname: "Truskawka2"},
+        {nickname: "Alfred"},
+        {nickname: name},
+        {nickname: "Truskawka"},
       ]
     })
   }
@@ -35,9 +35,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <UserInput changed={this.changeNickname}/>
+        <UserInput
+          changed={this.changeNickname}
+          userName={this.state.users[0].nickname} />
         <UserOutput
-          click={this.switchName}
+          click={this.switchName.bind(this, 'Krowka')}
           userName={this.state.users[0].nickname} />
         <UserOutput
           userName={this.state.users[1].nickname} />
