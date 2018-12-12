@@ -2,7 +2,9 @@ import React from 'react';
 
 const userInput = (props) => {
   return (
-    <div>UserInput</div>
+    <div>
+      <input type='text' />
+    </div>
 )
 };
 
