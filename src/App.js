@@ -20,13 +20,22 @@ class App extends Component {
         {nickname: "Truskawka2"},
       ]
     })
+  }
 
+  changeNickname = (event) => {
+    this.setState({
+      users: [
+        {nickname: event.target.value },
+        {nickname: "Krzysio"},
+        {nickname: "Truskawka"},
+      ]
+    })
   }
 
   render() {
     return (
       <div className="App">
-        <UserInput/>
+        <UserInput changed={this.changeNickname}/>
         <UserOutput
           click={this.switchName}
           userName={this.state.users[0].nickname} />
